@@ -170,7 +170,7 @@ def update(): # メイン処理（計算、判定を行う）
     global scene, timer, score, hisco, shield, pl_x, pl_y
 
     if scene == TITLE: # タイトル
-        if pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_B) or pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT) or pyxel.btnp(pyxel.KEY_SPACE): # SPACEキーで開始
+        if pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_B) or pyxel.btnp(pyxel.KEY_SPACE): # SPACEキーで開始
             pl_x = 10
             pl_y = HEIGHT // 2
             init_enemy()
