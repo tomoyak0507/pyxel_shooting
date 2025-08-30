@@ -211,7 +211,7 @@ def draw(): # 描画処理
 
     if scene == TITLE: # タイトル
         pyxel.text(WIDTH / 2 - 26, HEIGHT * 0.3, "SHOOTING GAME", 11)
-        pyxel.text(WIDTH / 2 - 28, HEIGHT * 0.7, "[SPACE] or [AnyKey] Start.", pyxel.rndi(7, 10))
+        pyxel.text(WIDTH / 2 - 2*(12+14), HEIGHT * 0.7, "[SPACE] or [Button] Start.", pyxel.rndi(7, 10))
 
     if scene == PLAY: # ゲームプレイ
         pyxel.blt(pl_x - 8, pl_y - 4, 0, 0, 0, 16, 8, 0) # 自機の表示
