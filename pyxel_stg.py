@@ -27,15 +27,15 @@ pl_x, pl_y = 30, 40 # 自機の座標を代入する変数
 
 def move_player(): # 自機をカーソルキーで動かす
     global pl_x, pl_y
-    if pyxel.btn(pyxel.KEY_UP) and pl_y > 12: # 上キー
+    if (pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_UP) or pyxel.btn(pyxel.KEY_UP)) and pl_y > 12: # 上キー
         pl_y -= 2
-    if pyxel.btn(pyxel.KEY_DOWN) and pl_y < HEIGHT - 20: # 下キー
+    if (pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_DOWN) or pyxel.btn(pyxel.KEY_DOWN)) and pl_y < HEIGHT - 20: # 下キー
         pl_y += 2
-    if pyxel.btn(pyxel.KEY_LEFT) and pl_x > 10: # 左キー
+    if (pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT) or pyxel.btn(pyxel.KEY_LEFT)) and pl_x > 10: # 左キー
         pl_x -= 2
-    if pyxel.btn(pyxel.KEY_RIGHT) and pl_x < WIDTH - 10: # 右キー
+    if (pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT) or pyxel.btn(pyxel.KEY_RIGHT)) and pl_x < WIDTH - 10: # 右キー
         pl_x += 2
-    if pyxel.btnp(pyxel.KEY_SPACE, 0, 10): # スペースキー
+    if (pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A, 0, 10) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_B, 0, 10) or pyxel.btnp(pyxel.KEY_SPACE, 0, 10)): # スペースキー
         set_bullet(pl_x, pl_y, 10, 0)
         
 # 自機から発射する弾を制御する配列
@@ -170,7 +170,7 @@ def update(): # メイン処理（計算、判定を行う）
     global scene, timer, score, hisco, shield, pl_x, pl_y
 
     if scene == TITLE: # タイトル
-        if pyxel.btnp(pyxel.KEY_SPACE): # SPACEキーで開始
+        if pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_B) or pyxel.btnp(pyxel.KEY_SPACE): # SPACEキーで開始
             pl_x = 10
             pl_y = HEIGHT // 2
             init_enemy()
